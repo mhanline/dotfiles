@@ -1,0 +1,15 @@
+#!/bin/sh
+curl -fsSL http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key | sudo apt-key add -
+curl -fsSL http://repo.mosquitto.org/debian/mosquitto-stretch.list > /etc/apt/sources.list.d/mosquitto-stretch.list
+apt-get update
+apt-get install mosquitto-clients -y
+yes | pip3 install --upgrade pip
+yes | pip3 install pyjwt cryptography
+# Protobufs manual install
+export PROTOC_VER=3.11.1
+export PROTOC_REL=protoc-"${PROTOC_VER}"-linux-x86_64.zip
+wget https://github.com/google/protobuf/releases/download/v"${PROTOC_VER}/${PROTOC_REL}" \
+&& yes | unzip ${PROTOC_REL} -d protoc \
+&& sudo mv -f protoc /usr/local \
+&& sudo ln -s /usr/local/protoc/bin/protoc /usr/local/bin
+echo "Done"
