@@ -1,5 +1,5 @@
 #!/bin/sh
-curl -fsSL http://repo.mosquitto.org/debian/mosquitto-repo.gpg.key | sudo apt-key add -
+apt-key adv --fetch-keys https://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
 curl -fsSL http://repo.mosquitto.org/debian/mosquitto-stretch.list > /etc/apt/sources.list.d/mosquitto-stretch.list
 apt-get update
 apt-get install mosquitto-clients -y
