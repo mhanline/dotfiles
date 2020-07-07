@@ -1,4 +1,8 @@
 #!/bin/sh
+ln -sf /usr/share/zoneinfo/Australia/Sydney /etc/localtime
+echo "Australia/Sydney" > /etc/timezone
+dpkg-reconfigure --frontend noninteractive tzdata
+service rsyslog restart
 apt-key adv --fetch-keys https://repo.mosquitto.org/debian/mosquitto-repo.gpg.key
 curl -fsSL http://repo.mosquitto.org/debian/mosquitto-stretch.list > /etc/apt/sources.list.d/mosquitto-stretch.list
 apt-get update
