@@ -25,4 +25,14 @@ function extract() {
 if command -v most >/dev/null 2>&1; then
   alias man='man -P most'
 fi
-alias k='kubectl'
+
+alias k=kubectl
+alias kc=kubectl
+alias gc=gcloud
+alias setproject='gcloud config set project'
+alias tfaa='terraform apply -auto-approve'
+alias tfda='terraform destroy -auto-approve'
+alias tf=terraform
+alias cs='cloudshell'
+alias freespace='du -sah /home/mhanline/*'
+alias findtext='grep -rin "." -e'
